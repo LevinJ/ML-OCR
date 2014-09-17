@@ -177,21 +177,6 @@ void Knntest::test3()
 	CvMat sample = cvMat(1, 2, CV_32FC1, _sample);
 	cvZero(img);
 
-	//CvMat trainData1, trainData2, trainClasses1, trainClasses2;
-
-	// form the training samples
-	/*cvGetRows(trainData, &trainData1, 0, train_sample_count / 2);
-	cvRandArr(&rng_state, &trainData1, CV_RAND_NORMAL, cvScalar(20), cvScalar(5));
-
-	cvGetRows(trainData, &trainData2, train_sample_count / 2, train_sample_count);
-	cvRandArr(&rng_state, &trainData2, CV_RAND_NORMAL, cvScalar(300), cvScalar(50));
-
-	cvGetRows(trainClasses, &trainClasses1, 0, train_sample_count / 2);
-	cvSet(&trainClasses1, cvScalar(1));
-
-	cvGetRows(trainClasses, &trainClasses2, train_sample_count / 2, train_sample_count);
-	cvSet(&trainClasses2, cvScalar(2));*/
-
 
 
 	float trainingDataar[] = { 3, 104,
@@ -241,19 +226,6 @@ void Knntest::test3()
 		}
 	}
 
-	// display the original training samples
-	//for (i = 0; i < train_sample_count; i++)
-	//{
-	//	/*CvPoint pt;
-	//	pt.x = cvRound(trainData1.data.fl[i * 2]);
-	//	pt.y = cvRound(trainData1.data.fl[i * 2 + 1]);
-	//	cvCircle(img, pt, 5, CV_RGB(255, 0, 0), CV_FILLED);
-	//	pt.x = cvRound(trainData2.data.fl[i * 2]);
-	//	pt.y = cvRound(trainData2.data.fl[i * 2 + 1]);
-	//	cvCircle(img, pt, 2, CV_RGB(0, 255, 0), CV_FILLED);*/
-
-
-	//}
 
 	for (i = 0; i < trainData->rows; i++)
 	{
@@ -273,8 +245,14 @@ void Knntest::test3()
 
 	sample.data.fl[0] = (float)50;
 	sample.data.fl[1] = (float)300;
-	response = knn.find_nearest(&sample, K, 0, 0, nearests, 0);
+	CvMat* dist = cvCreateMat(1, K, CV_32FC1);
+	CvMat* results = cvCreateMat(1, 1, CV_32FC1);
+	response = knn.find_nearest(&sample, K, 0, 0, nearests, dist);
 	printf("res=%f", response);
+	printf("\n distance:\n");
+	cvDoubleMatPrint(dist);
+	printf("\n result:\n");
+	cvDoubleMatPrint(results);
 
 	CvPoint pt;
 	pt.x = cvRound(cvmGet(&sample, 0, 0));
