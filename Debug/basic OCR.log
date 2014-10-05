@@ -1,18 +1,18 @@
-﻿Build started 2014/9/17 9:42:37.
+﻿Build started 2014/10/2 11:54:40.
      1>Project "D:\baiducloud\tech\OpenCV\basicOCR\basic OCR.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (basic OCR.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:/baiducloud/tech/OpenCV/build/install/x86/vc12\..\..\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Knntest.cpp
-         Knntest.cpp
-     1>d:\baiducloud\tech\opencv\basicocr\knntest.cpp(232): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:/baiducloud/tech/OpenCV/build/install/x86/vc12\..\..\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SvmTest.cpp
+         SvmTest.cpp
        Link:
          C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\baiducloud\tech\OpenCV\basicOCR\Debug\basicOCR.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:/baiducloud/tech/OpenCV/build/install/x86/vc12\lib opencv_core249d.lib opencv_imgproc249d.lib opencv_highgui249d.lib opencv_ml249d.lib opencv_video249d.lib opencv_features2d249d.lib opencv_calib3d249d.lib opencv_objdetect249d.lib opencv_contrib249d.lib opencv_legacy249d.lib opencv_flann249d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\baiducloud\tech\OpenCV\basicOCR\Debug\basicOCR.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\baiducloud\tech\OpenCV\basicOCR\Debug\basicOCR.lib" /MACHINE:X86 Debug\basicOCR.obj
          Debug\Knntest.obj
          Debug\main.obj
          Debug\preprocessing.obj
+         Debug\SvmTest.obj
          basic OCR.vcxproj -> D:\baiducloud\tech\OpenCV\basicOCR\Debug\basicOCR.exe
      1>Done Building Project "D:\baiducloud\tech\OpenCV\basicOCR\basic OCR.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.98
+Time Elapsed 00:00:02.19

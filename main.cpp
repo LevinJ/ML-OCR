@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include "basicOCR.h"
 #include "Knntest.h"
+#include "SvmTest.h"
 
 using namespace cv;
 using namespace std;
@@ -84,10 +85,12 @@ void on_mouse(int event, int x, int y, int flags, void* param)
 
 int main(int argc, char** argv)
 {
-	Knntest knntest;
+	SvmTest svmtest;
+	svmtest.test();
+	//Knntest knntest;
 	//knntest.test();
 	/*knntest.test2();*/
-	knntest.test3();
+	//knntest.test3();
 	//printf("Basic OCR by David Millan Escriva | Damiles\n"
 	//	"Hot keys: \n"
 	//	"\tr - reset image\n"

@@ -27,6 +27,9 @@
     <ClCompile Include="Knntest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SvmTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="preprocessing.h">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Knntest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SvmTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
