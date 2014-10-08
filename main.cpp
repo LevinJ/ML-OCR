@@ -6,6 +6,7 @@
 #include "basicOCR.h"
 #include "Knntest.h"
 #include "SvmTest.h"
+#include "mnist-knn/Knnopencv.h"
 
 using namespace cv;
 using namespace std;
@@ -16,6 +17,11 @@ IplImage* screenBuffer;
 int drawing;
 int r, last_x, last_y;
 
+void test(){
+	Knnopencv obj;
+	obj.test();
+
+}
 void draw(int x, int y){
 	//Draw a circle where is the mouse
 	cvCircle(imagen, cvPoint(x, y), r, CV_RGB(red, green, blue), -1, 4, 0);
@@ -85,8 +91,9 @@ void on_mouse(int event, int x, int y, int flags, void* param)
 
 int main(int argc, char** argv)
 {
-	SvmTest svmtest;
-	svmtest.test();
+	test();
+	/*SvmTest svmtest;
+	svmtest.test();*/
 	//Knntest knntest;
 	//knntest.test();
 	/*knntest.test2();*/

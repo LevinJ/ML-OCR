@@ -4,4 +4,7 @@
     <LocalDebuggerCommandArguments>D:\baiducloud\tech\OpenCV\basicOCR\data\aero1.jpg</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup>
+    <ShowAllFiles>true</ShowAllFiles>
+  </PropertyGroup>
 </Project>

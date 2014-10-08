@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="basicOCR.cpp" />
+    <ClCompile Include="mnist-knn\Knnopencv.cpp" />
     <ClCompile Include="Knntest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="preprocessing.cpp" />
@@ -88,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basicOCR.h" />
+    <ClInclude Include="mnist-knn\Knnopencv.h" />
     <ClInclude Include="Knntest.h" />
     <ClInclude Include="preprocessing.h" />
     <ClInclude Include="SvmTest.h" />
