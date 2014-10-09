@@ -7,6 +7,7 @@
 #include "Knntest.h"
 #include "SvmTest.h"
 #include "mnist-knn/Knnopencv.h"
+#include "mnist-svm/Svmopencv.h"
 
 using namespace cv;
 using namespace std;
@@ -18,8 +19,10 @@ int drawing;
 int r, last_x, last_y;
 
 void test(){
-	Knnopencv obj;
+	//Knnopencv obj;
+	Svmopencv obj;
 	obj.test();
+	
 
 }
 void draw(int x, int y){

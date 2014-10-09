@@ -33,6 +33,9 @@
     <ClCompile Include="mnist-knn\Knnopencv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mnist-svm\Svmopencv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="preprocessing.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mnist-knn\Knnopencv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mnist-svm\Svmopencv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

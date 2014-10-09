@@ -85,6 +85,7 @@
     <ClCompile Include="Knntest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="preprocessing.cpp" />
+    <ClCompile Include="mnist-svm\Svmopencv.cpp" />
     <ClCompile Include="SvmTest.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +93,7 @@
     <ClInclude Include="mnist-knn\Knnopencv.h" />
     <ClInclude Include="Knntest.h" />
     <ClInclude Include="preprocessing.h" />
+    <ClInclude Include="mnist-svm\Svmopencv.h" />
     <ClInclude Include="SvmTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
