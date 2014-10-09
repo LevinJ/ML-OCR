@@ -22,7 +22,10 @@ void test(){
 	//Knnopencv obj;
 	Svmopencv obj;
 	obj.test();
-	
+	while (1){
+		int key = cvWaitKey(10000);
+		if (key == 27) break;
+	}
 
 }
 void draw(int x, int y){

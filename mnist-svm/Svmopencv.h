@@ -17,6 +17,8 @@ using namespace std;
 class Svmopencv
 {
 public:
+	void extractTrainingData(int& numImages, CvMat*&trainingVectors, CvMat*& trainingLabels);
+	void extractTestingData(int& numImages, CvMat*&testVectors, CvMat*& actualLabels);
 	int readFlippedInteger(FILE *fp);
 	void test();
 	Svmopencv();
