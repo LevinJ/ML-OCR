@@ -5,6 +5,5 @@
 *.sln
 *.sdf
 *.opensdf
-*.dir/
 Debug/
 Release/
