@@ -68,8 +68,9 @@ void Svmopencv::test()
 	//4 degree poly
 	params.svm_type = CvSVM::C_SVC;
 	params.kernel_type = CvSVM::POLY;
-	params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER + CV_TERMCRIT_EPS, 1000, 1e-8);
-	params.degree =2;
+	//params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+	params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER + CV_TERMCRIT_EPS, 2000, FLT_EPSILON);
+	params.degree =9;
 	params.gamma = 5.383;
 	params.coef0 = 1;
 	params.C = 10;
@@ -77,22 +78,13 @@ void Svmopencv::test()
 	//RBF
 	//params.svm_type = CvSVM::C_SVC;
 	//params.kernel_type = CvSVM::RBF;
-	//params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER + CV_TERMCRIT_EPS, 100, 1e-8);
-	//params.gamma = 0.1125;
-	//params.C = 64;
-	//params.svm_type = CvSVM::C_SVC;
-	//params.kernel_type = CvSVM::RBF;
-	//params.degree = 3;
-	//params.gamma = 0;	// 1/num_features
-	//params.coef0 = 0;
-	//params.nu = 0.5;
-
-	//params.C = 1;
-
-	//params.p = 0.1;
-
-	//CvTermCriteria  criteria = cvTermCriteria(CV_TERMCRIT_EPS, 1000, FLT_EPSILON);
-	//CvSVMParams  params = CvSVMParams(CvSVM::C_SVC, CvSVM::RBF, 10.0, 8.0, 1.0, 10.0, 0.5, 0.1, NULL, criteria);
+	//params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+	////params.degree = 4;
+	//params.gamma = 5.383;
+	//params.coef0 = 2.67;
+	//params.C = 2.67;
+	////params.nu = 0.1;
+	////params.p = 0;
 
 
 	CvSVM SVM;

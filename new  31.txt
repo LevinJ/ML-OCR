@@ -1,0 +1,11 @@
+CvSVMParams params;
+	params.svm_type = CvSVM::NU_SVC;
+	params.kernel_type = CvSVM::POLY;
+	params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+	params.degree = CvSVM::POLY;
+	params.gamma = CvSVM::POLY;
+	params.coef0 = CvSVM::POLY;
+	params.nu = 0.1;
+	params.p = CvSVM::EPS_SVR;
+	CvSVM SVM;
+	SVM.train(trainingVectors, trainingLabels, Mat(), Mat(), params);
