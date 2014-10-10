@@ -20,8 +20,14 @@ int r, last_x, last_y;
 
 void test(){
 	//Knnopencv obj;
+	clock_t start;
+	double diff;
+	start = clock();
+	
 	Svmopencv obj;
 	obj.test();
+	diff = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+	printf("\nOverall Duration:%.0f(Seconds)", diff);
 	while (1){
 		int key = cvWaitKey(10000);
 		if (key == 27) break;

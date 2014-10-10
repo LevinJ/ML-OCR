@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <ctype.h>
 //#include <stdlib.h>
-#include <time.h>
+#include <ctime>
 
 typedef unsigned char       BYTE;
 using namespace cv;

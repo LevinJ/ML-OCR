@@ -49,8 +49,8 @@ void Svmopencv::extractTrainingData(int& numImages, CvMat *& trainingVectors, Cv
 
 void Svmopencv::test()
 {
-	//sample number to be used
-	int numImages = 1000;
+	//number of taining samples to be used
+	int numImages = 6000;
 	CvMat *trainingVectors = 0;
 	CvMat *trainingLabels = 0;
 	extractTrainingData(numImages, trainingVectors, trainingLabels);
@@ -72,7 +72,7 @@ void Svmopencv::test()
 	//Recognition: Using SVM
 
 	//test number to be used
-	numImages = 2000;//for tesing number
+	numImages = 1000;//for tesing number
 	CvMat *testVectors = 0;
 	CvMat *actualLabels = 0;
 	extractTestingData(numImages, testVectors,  actualLabels);
@@ -89,11 +89,11 @@ void Svmopencv::test()
 			totalCorrect++;
 		}
 		else{
-			printf("\n error: test id=%d number %f was mistaken as %f", i, actualLabels->data.fl[i], testLabels->data.fl[i]);
+			printf("\n Error: image id=%d number %f was mistaken as %f", i, actualLabels->data.fl[i], testLabels->data.fl[i]);
 		}
 			
 	}
-	printf("\nTime: %d error rate: %f", (int)time, 
+	printf("\nError Rate: %.1f%%", 
 		(double)100- (double)totalCorrect * 100 / (double)numImages);
 
 	cvReleaseMat(&testVectors);

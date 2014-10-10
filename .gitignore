@@ -1,0 +1,10 @@
+# Visual Studio files
+*.vcxproj
+*.vcxproj.*
+*.suo
+*.sln
+*.sdf
+*.opensdf
+*.dir/
+Debug/
+Release/
