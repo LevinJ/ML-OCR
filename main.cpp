@@ -8,6 +8,7 @@
 #include "SvmTest.h"
 #include "mnist-knn/Knnopencv.h"
 #include "mnist-svm/Svmopencv.h"
+#include "mnist-nn/NNopencv.h"
 
 using namespace cv;
 using namespace std;
@@ -24,14 +25,18 @@ void test(){
 	double diff;
 	start = clock();
 	
-	Svmopencv obj;
+	//Svmopencv obj;
+	NNopencv obj;
 	obj.test();
 	diff = (std::clock() - start) / (double)CLOCKS_PER_SEC;
 	printf("\nOverall Duration:%.0f(Seconds)", diff);
-	while (1){
+
+	int wait;
+	scanf("%d", &wait);
+	/*while (1){
 		int key = cvWaitKey(10000);
 		if (key == 27) break;
-	}
+	}*/
 
 }
 void draw(int x, int y){

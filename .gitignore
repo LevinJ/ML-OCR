@@ -21,3 +21,4 @@ bld/
 *.sdf
 *.opensdf
 *.vcxproj.*
+/*hidden.xml
