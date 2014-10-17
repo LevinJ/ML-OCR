@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="basicOCR.cpp" />
+    <ClCompile Include="mnist-decisiontree\DTopencv.cpp" />
     <ClCompile Include="mnist-knn\Knnopencv.cpp" />
     <ClCompile Include="Knntest.cpp" />
     <ClCompile Include="main.cpp" />
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basicOCR.h" />
+    <ClInclude Include="mnist-decisiontree\DTopencv.h" />
     <ClInclude Include="mnist-knn\Knnopencv.h" />
     <ClInclude Include="Knntest.h" />
     <ClInclude Include="mnist-nn\NNopencv.h" />
