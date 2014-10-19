@@ -63,7 +63,7 @@ CvDTree* DTopencv::mnist_create_dtree(const CvMat* data, const CvMat* missing,
 		CvDTreeParams(80, // max depth
 		10, // min sample count
 		0, // regression accuracy: N/A here
-		false, // compute surrogate split, as we have missing data
+		true, // compute surrogate split, as we have missing data
 		2, // max number of categories (use sub-optimal algorithm for larger numbers)
 		10, // the number of cross-validation folds
 		true, // use 1SE rule => smaller tree
@@ -125,6 +125,7 @@ void DTopencv::test()
 	}
 	printf("\nError Rate: %.1f%%", (double)err * 100 / (double)testVectors->rows);
 
+	print_variable_importance(dtree);
 	delete dtree;
 	cvReleaseMat(&testVectors);
 	cvReleaseMat(&actualLabels);
@@ -189,6 +190,84 @@ int DTopencv::readFlippedInteger(FILE *fp)
 
 	fread(&temp[0], sizeof(BYTE), 1, fp);
 	return ret;
+}
+//static const char* var_desc[] =
+//{
+//	"cap shape (bell=b,conical=c,convex=x,flat=f)",
+//	"cap surface (fibrous=f,grooves=g,scaly=y,smooth=s)",
+//	"cap color (brown=n,buff=b,cinnamon=c,gray=g,green=r,\n\tpink=p,purple=u,red=e,white=w,yellow=y)",
+//	"bruises? (bruises=t,no=f)",
+//	"odor (almond=a,anise=l,creosote=c,fishy=y,foul=f,\n\tmusty=m,none=n,pungent=p,spicy=s)",
+//	"gill attachment (attached=a,descending=d,free=f,notched=n)",
+//	"gill spacing (close=c,crowded=w,distant=d)",
+//	"gill size (broad=b,narrow=n)",
+//	"gill color (black=k,brown=n,buff=b,chocolate=h,gray=g,\n\tgreen=r,orange=o,pink=p,purple=u,red=e,white=w,yellow=y)",
+//	"stalk shape (enlarging=e,tapering=t)",
+//	"stalk root (bulbous=b,club=c,cup=u,equal=e,rhizomorphs=z,rooted=r)",
+//	"stalk surface above ring (ibrous=f,scaly=y,silky=k,smooth=s)",
+//	"stalk surface below ring (ibrous=f,scaly=y,silky=k,smooth=s)",
+//	"stalk color above ring (brown=n,buff=b,cinnamon=c,gray=g,orange=o,\n\tpink=p,red=e,white=w,yellow=y)",
+//	"stalk color below ring (brown=n,buff=b,cinnamon=c,gray=g,orange=o,\n\tpink=p,red=e,white=w,yellow=y)",
+//	"veil type (partial=p,universal=u)",
+//	"veil color (brown=n,orange=o,white=w,yellow=y)",
+//	"ring number (none=n,one=o,two=t)",
+//	"ring type (cobwebby=c,evanescent=e,flaring=f,large=l,\n\tnone=n,pendant=p,sheathing=s,zone=z)",
+//	"spore print color (black=k,brown=n,buff=b,chocolate=h,green=r,\n\torange=o,purple=u,white=w,yellow=y)",
+//	"population (abundant=a,clustered=c,numerous=n,\n\tscattered=s,several=v,solitary=y)",
+//	"habitat (grasses=g,leaves=l,meadows=m,paths=p\n\turban=u,waste=w,woods=d)",
+//	0
+//};
+void DTopencv::print_variable_importance(CvDTree* dtree)
+{
+	//const CvMat* var_importance = dtree->get_var_importance();
+	Mat var_importance = dtree->getVarImportance();
+	int i;
+	char input[1000];
+	Mat importancesort;
+
+	if (var_importance.cols == 0)
+	{
+		printf("Error: Variable importance can not be retrieved\n");
+		return;
+	}
+	sortIdx(var_importance, importancesort, CV_SORT_EVERY_ROW + CV_SORT_DESCENDING);
+
+	double var_improtatacne_total = 0;
+
+	for (int i = 0; i < importancesort.rows; i++){
+		for (int j = 0; j < 80; j ++ ){
+			int index = importancesort.at<int>(i, j);
+			double val = var_importance.at<double>(0, index);
+			printf("Bit %d, %d: %g%%\n", index / 28 + 1, index % 28, val*100.);
+		}
+	}
+
+	//for (i = 0; i < importancesort.cols*importancesort.rows; i++)
+	//{
+	//	int index = importancesort.step
+	//	double val = var_importance->data.db[importancesort.at(];
+	//	/*char buf[100];
+	//	int len = (int)(strchr(var_desc[i], '(') - var_desc[i] - 1);
+	//	strncpy(buf, var_desc[i], len);
+	//	buf[len] = '\0';*/
+	//	//printf("%s", buf);
+	//	var_improtatacne_total = var_improtatacne_total + val;
+	//	printf("Bit %d, %d: %g%%\n", i / 28 + 1, i % 28, val*100.);
+	//}
+
+
+	//for (i = 0; i < var_importance.cols*var_importance.rows; i++)
+	//{
+	//	double val = var_importance->data.db[i];
+	//	/*char buf[100];
+	//	int len = (int)(strchr(var_desc[i], '(') - var_desc[i] - 1);
+	//	strncpy(buf, var_desc[i], len);
+	//	buf[len] = '\0';*/
+	//	//printf("%s", buf);
+	//	var_improtatacne_total = var_improtatacne_total + val;
+	//	printf("Bit %d, %d: %g%%\n", i/28 + 1, i%28,val*100.);
+	//}
+	//printf("Total variable importane%g%%\n", var_improtatacne_total*100);
 }
 DTopencv::~DTopencv()
 {

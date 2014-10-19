@@ -22,6 +22,7 @@ public:
 	int readFlippedInteger(FILE *fp);
 	CvDTree* mnist_create_dtree(const CvMat* data, const CvMat* missing,
 		const CvMat* responses, float p_weight);
+	void print_variable_importance(CvDTree* dtree);
 	void test();
 	DTopencv();
 	~DTopencv();

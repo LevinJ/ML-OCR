@@ -22,3 +22,4 @@ bld/
 *.opensdf
 *.vcxproj.*
 /*hidden.xml
+*USERSWO-*Administrator*.cpp
