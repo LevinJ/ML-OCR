@@ -62,7 +62,7 @@ CvRTrees* RandomForestopencv::mnist_create_RandomForestree(const CvMat* data, co
 	RandomForestree->train(data, CV_ROW_SAMPLE, responses, 0, 0, var_type, missing,
 
 		//CvRTParams(10, 10, 0, false, 15, 0, true, 4, 20, 0.01f, CV_TERMCRIT_ITER)
-		CvRTParams(20,//the depth of the tree
+		CvRTParams(5,//the depth of the tree
 		10,//minimum samples required at a leaf node for it to be split
 		0, //regression_accuracy
 		true, //use_surrogates
@@ -70,7 +70,7 @@ CvRTrees* RandomForestopencv::mnist_create_RandomForestree(const CvMat* data, co
 		0, //priors
 		true,//calc_var_importance
 		0, //nactive_vars
-		20, //max_num_of_trees_in_the_forest
+		50, //max_num_of_trees_in_the_forest
 		0.01f,//forest_accuracy
 		CV_TERMCRIT_ITER)
 		);
