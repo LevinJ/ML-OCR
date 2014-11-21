@@ -48,7 +48,40 @@ void NNopencv::extractTrainingData(int& numImages, CvMat *& trainingVectors, CvM
 	delete[] temp;
 
 }
+void predictonTrainingSamples(NNopencv * nn, CvANN_MLP& Networks, CvMat *& testVectors, 
+	 CvMat *& actualLabels, int numImages){
 
+	CvMat *testLabels = cvCreateMat(numImages, 10, CV_32FC1);
+	nn->NeuralNetworksPredict(Networks, testVectors, testLabels);
+
+
+	//Get the error rate and print the result out
+	int totalCorrect = 0;
+	float tlabel = 0;
+	for (int i = 0; i < numImages; i++){
+		//find the digit that has been identified by NN
+		float maxValue = 0;
+		for (int j = 0; j < 10; j++){
+			float jclass = CV_MAT_ELEM(*testLabels, float, i, j);
+			if (jclass > maxValue){
+				maxValue = jclass;
+				tlabel = j;
+			}
+		}
+		//tlabel is now the digit identified
+		/*if (testLabels->data.fl[i] == actualLabels->data.fl[i])*/
+		if (tlabel == actualLabels->data.fl[i])
+		{
+			totalCorrect++;
+		}
+		else{
+			printf("\n Error: image id=%d number %f was mistaken as %f", i, actualLabels->data.fl[i], tlabel);
+		}
+
+	}
+	printf("\nError Rate on training samples: %.1f%%",
+		(double)100 - (double)totalCorrect * 100 / (double)numImages);
+}
 void NNopencv::test()
 {
 	//number of taining samples to be used
@@ -65,7 +98,8 @@ void NNopencv::test()
 	// save the networks  
 	Networks.save("NerualNetworks-ite=2-1000hidden.xml");
 
-
+	/*predictonTrainingSamples(this, Networks, trainingVectors,
+		trainingLabels, numImages);*/
 	cvReleaseMat(&trainingVectors);
 	cvReleaseMat(&trainingLabels);
 
@@ -75,11 +109,13 @@ void NNopencv::test()
 	CvMat *testVectors = 0;
 	CvMat *actualLabels = 0;
 	extractTestingData(numImages, testVectors, actualLabels);
+	
 
 	CvMat *testLabels = cvCreateMat(numImages, 10, CV_32FC1);
-	//SVM.predict(testVectors, testLabels);
-	//Mat testLabels;
+	
 	NeuralNetworksPredict(Networks, testVectors, testLabels);
+	/*NeuralNetworksPredict(Networks, trainingVectors, testLabels);
+	actualLabels = trainingLabels;*/
 	
 	
 	//Get the error rate and print the result out

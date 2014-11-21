@@ -73,7 +73,29 @@ void Svmopencv::extractTrainingData(int& numImages, CvMat *& trainingVectors, Cv
 
 }
 
+void predictonTrainingSamples(CvSVM &SVM, CvMat *& testVectors,
+	CvMat *& actualLabels, int numImages){
 
+	CvMat *testLabels = cvCreateMat(numImages, 1, CV_32FC1);
+	SVM.predict(testVectors, testLabels);
+
+
+	//Get the error rate and print the result out
+	int totalCorrect = 0;
+	for (int i = 0; i < numImages; i++){
+		if (testLabels->data.fl[i] == actualLabels->data.fl[i])
+		{
+			totalCorrect++;
+		}
+		else{
+			printf("\n Error: image id=%d number %f was mistaken as %f", i, actualLabels->data.fl[i], testLabels->data.fl[i]);
+		}
+
+	}
+	printf("\nError Rate: %.1f%%",
+		(double)100 - (double)totalCorrect * 100 / (double)numImages);
+	
+}
 void Svmopencv::test()
 {
 	//number of taining samples to be used
@@ -101,29 +123,14 @@ void Svmopencv::test()
 	params.coef0 = 1;
 	params.C = 10;
 
-	//RBF
-	//params.svm_type = CvSVM::C_SVC;
-	//params.kernel_type = CvSVM::RBF;
-	//params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER + CV_TERMCRIT_EPS, 100, 1e-8);
-	//params.gamma = 0.1125;
-	//params.C = 64;
-	//params.svm_type = CvSVM::C_SVC;
-	//params.kernel_type = CvSVM::RBF;
-	//params.degree = 3;
-	//params.gamma = 0;	// 1/num_features
-	//params.coef0 = 0;
-	//params.nu = 0.5;
-
-	//params.C = 1;
-
-	//params.p = 0.1;
-
-	//CvTermCriteria  criteria = cvTermCriteria(CV_TERMCRIT_EPS, 1000, FLT_EPSILON);
-	//CvSVMParams  params = CvSVMParams(CvSVM::C_SVC, CvSVM::RBF, 10.0, 8.0, 1.0, 10.0, 0.5, 0.1, NULL, criteria);
+	
 
 
 	CvSVM SVM;
 	SVM.train(trainingVectors, trainingLabels, Mat(), Mat(), params);
+
+	/*predictonTrainingSamples(SVM, trainingVectors,
+		trainingLabels, numImages);*/
 	cvReleaseMat(&trainingVectors);
 	cvReleaseMat(&trainingLabels);
 
