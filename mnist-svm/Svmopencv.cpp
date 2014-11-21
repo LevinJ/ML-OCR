@@ -4,6 +4,31 @@
 Svmopencv::Svmopencv()
 {
 }
+void Svmopencv::getNumFrequency(CvMat*& labels){
+	
+	std:map<int, int> labelCountMap;
+
+
+		for (int i = 0; i<labels->rows; i++)
+	{	
+			int num = labels->data.fl[i];
+			if (labelCountMap.find(num) == labelCountMap.end())
+			{
+				labelCountMap[num] = 1;
+			}
+			else{
+				labelCountMap[num] = labelCountMap[num] + 1;
+			}
+		
+
+	}
+
+		//print it out
+		typedef std::map<int, int>::iterator it_type;
+		for (it_type iterator = labelCountMap.begin(); iterator != labelCountMap.end(); iterator++) {
+			printf("num = %d, count = %d\n", iterator->first, iterator->second);
+		}
+}
 void Svmopencv::extractTrainingData(int& numImages, CvMat *& trainingVectors, CvMat*& trainingLabels)
 {
 	FILE *fp = fopen("D:\\baiducloud\\tech\\OpenCV\\basicOCR\\data\\mnist\\train-images-idx3-ubyte\\train-images.idx3-ubyte", "rb");
@@ -43,6 +68,8 @@ void Svmopencv::extractTrainingData(int& numImages, CvMat *& trainingVectors, Cv
 	fclose(fp);
 	fclose(fp2);
 	delete[] temp;
+
+	getNumFrequency(trainingLabels);
 
 }
 
@@ -176,6 +203,8 @@ void Svmopencv::extractTestingData(int& numImages, CvMat*&testVectors, CvMat*& a
 	fclose(fp);
 	fclose(fp2);
 	delete[] temp;
+
+	getNumFrequency(actualLabels);
 }
 
 int Svmopencv::readFlippedInteger(FILE *fp)

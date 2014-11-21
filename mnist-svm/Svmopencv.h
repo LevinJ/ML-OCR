@@ -21,6 +21,7 @@ public:
 	void extractTestingData(int& numImages, CvMat*&testVectors, CvMat*& actualLabels);
 	int readFlippedInteger(FILE *fp);
 	void test();
+	void  getNumFrequency(CvMat*& labels);
 	Svmopencv();
 	~Svmopencv();
 };

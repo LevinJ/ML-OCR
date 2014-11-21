@@ -19,6 +19,7 @@ public:
 	void extractTestingData(int& numImages, CvMat*&testVectors, CvMat*& actualLabels);
 	int readFlippedInteger(FILE *fp);
 	void test();
+	void testPCA();
 	Naivebayesopencv();
 	~Naivebayesopencv();
 };

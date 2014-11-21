@@ -49,7 +49,6 @@ void NNopencv::extractTrainingData(int& numImages, CvMat *& trainingVectors, CvM
 
 }
 
-
 void NNopencv::test()
 {
 	//number of taining samples to be used

@@ -28,11 +28,12 @@ void test(){
 	double diff;
 	start = clock();
 	
-	//Svmopencv obj;
+	Svmopencv obj;
 	//NNopencv obj;
-	/*DTopencv obj;*/
-	/*RandomForestopencv obj;*/
-	Naivebayesopencv obj;
+	//DTopencv obj;
+	//RandomForestopencv obj;
+	//Knnopencv obj;
+	//Naivebayesopencv obj;
 	obj.test();
 	diff = (std::clock() - start) / (double)CLOCKS_PER_SEC;
 	printf("\nOverall Duration:%.0f(Seconds)", diff);

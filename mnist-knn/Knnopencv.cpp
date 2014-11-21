@@ -26,6 +26,8 @@ void Knnopencv::test()
 
 	int magicNumber = readFlippedInteger(fp);
 	int numImages = readFlippedInteger(fp);
+	//train 6000 only
+	numImages = 6000;
 
 	int numRows = readFlippedInteger(fp);
 
@@ -72,6 +74,8 @@ void Knnopencv::test()
 
 	numCols = readFlippedInteger(fp);
 
+	//test 1000 only
+	numImages = 1000;
 	fseek(fp2, 0x08, SEEK_SET);
 
 	CvMat *testVectors = cvCreateMat(numImages, size, CV_32FC1);
