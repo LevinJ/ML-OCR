@@ -157,7 +157,7 @@ void Svmopencv::test()
 			totalCorrect++;
 		}
 		else{
-			printf("\n Error: image id=%d number %f was mistaken as %f", i, actualLabels->data.fl[i], testLabels->data.fl[i]);
+			printf("\nError: image id=%d number %f was mistaken as %f", i, actualLabels->data.fl[i], testLabels->data.fl[i]);
 		}
 			
 	}

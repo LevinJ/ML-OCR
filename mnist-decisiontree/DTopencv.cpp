@@ -234,7 +234,7 @@ void DTopencv::print_variable_importance(CvDTree* dtree)
 	sortIdx(var_importance, importancesort, CV_SORT_EVERY_ROW + CV_SORT_DESCENDING);
 
 	double var_improtatacne_total = 0;
-
+	printf("\nVariable importance is as below:\n");
 	for (int i = 0; i < importancesort.rows; i++){
 		for (int j = 0; j < 80; j ++ ){
 			int index = importancesort.at<int>(i, j);
