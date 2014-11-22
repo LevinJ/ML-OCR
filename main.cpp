@@ -3,9 +3,6 @@
 #include <iostream>
 
 #include <ctype.h>
-#include "basicOCR.h"
-#include "Knntest.h"
-#include "SvmTest.h"
 #include "mnist-knn/Knnopencv.h"
 #include "mnist-svm/Svmopencv.h"
 #include "mnist-decisiontree/DTopencv.h"
@@ -18,7 +15,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	printf("This application is designed to compare and analyze diffrent learning algorithms on MNIST data set\n1 for SVM\n2 for ANN\n3 for KNN\n4 for decision tree\n5 for random forest\n");
+	printf("This application is designed to compare and analyze applying some common learning algorithms on handwritten digit recognition problem. MNIST data set is used a benchmark\n1 for SVM\n2 for ANN\n3 for KNN\n4 for decision tree\n5 for random forest\n");
 	clock_t start;
 	double diff;
 	start = clock();

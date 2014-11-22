@@ -80,29 +80,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="basicOCR.cpp" />
     <ClCompile Include="mnist-decisiontree\DTopencv.cpp" />
     <ClCompile Include="mnist-knn\Knnopencv.cpp" />
-    <ClCompile Include="Knntest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mnist-naivebayes\Naivebayesopencv.cpp" />
     <ClCompile Include="mnist-nn\NNopencv.cpp" />
     <ClCompile Include="mnist-randomforest\RandomForestopencv.cpp" />
-    <ClCompile Include="preprocessing.cpp" />
     <ClCompile Include="mnist-svm\Svmopencv.cpp" />
-    <ClCompile Include="SvmTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="basicOCR.h" />
     <ClInclude Include="mnist-decisiontree\DTopencv.h" />
     <ClInclude Include="mnist-knn\Knnopencv.h" />
-    <ClInclude Include="Knntest.h" />
     <ClInclude Include="mnist-naivebayes\Naivebayesopencv.h" />
     <ClInclude Include="mnist-nn\NNopencv.h" />
     <ClInclude Include="mnist-randomforest\RandomForestopencv.h" />
-    <ClInclude Include="preprocessing.h" />
     <ClInclude Include="mnist-svm\Svmopencv.h" />
-    <ClInclude Include="SvmTest.h" />
     <ClInclude Include="testBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
