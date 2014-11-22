@@ -98,6 +98,7 @@ void predictonTrainingSamples(KNearest &knn, CvMat *& testVectors,
 }
 void Knnopencv::test()
 {
+	printf("Use KNN learning algorithm to recognize handwritten digit\n");
 	//number of taining samples to be used
 	int numImages = 6000;
 	CvMat *trainingVectors = 0;
@@ -106,7 +107,7 @@ void Knnopencv::test()
 
 	KNearest knn(trainingVectors, trainingLabels);
 
-	predictonTrainingSamples(knn, trainingVectors, trainingLabels, numImages);
+	//predictonTrainingSamples(knn, trainingVectors, trainingLabels, numImages);
 	cvReleaseMat(&trainingVectors);
 	cvReleaseMat(&trainingLabels);
 

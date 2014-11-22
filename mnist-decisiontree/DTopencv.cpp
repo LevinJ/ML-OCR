@@ -93,6 +93,7 @@ CvDTree* DTopencv::mnist_create_dtree(const CvMat* data, const CvMat* missing,
 }
 void DTopencv::test()
 {
+	printf("Use decision tree learning algorithm to recognize handwritten digit\n");
 	//number of taining samples to be used
 	int numImages = 6000;
 	CvMat *trainingVectors = 0;

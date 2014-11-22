@@ -1,5 +1,6 @@
 #include "Svmopencv.h"
-
+using namespace cv;
+using namespace std;
 
 Svmopencv::Svmopencv()
 {
@@ -69,6 +70,7 @@ void Svmopencv::extractTrainingData(int& numImages, CvMat *& trainingVectors, Cv
 	fclose(fp2);
 	delete[] temp;
 
+	printf("Training samples distribution is as below:\n");
 	getNumFrequency(trainingLabels);
 
 }
@@ -98,6 +100,7 @@ void predictonTrainingSamples(CvSVM &SVM, CvMat *& testVectors,
 }
 void Svmopencv::test()
 {
+	printf("Use SVM learning algorithm to recognize handwritten digit\n");
 	//number of taining samples to be used
 	int numImages = 6000;
 	CvMat *trainingVectors = 0;
@@ -210,7 +213,7 @@ void Svmopencv::extractTestingData(int& numImages, CvMat*&testVectors, CvMat*& a
 	fclose(fp);
 	fclose(fp2);
 	delete[] temp;
-
+	printf("Testing samples distribution is as below:\n");
 	getNumFrequency(actualLabels);
 }
 

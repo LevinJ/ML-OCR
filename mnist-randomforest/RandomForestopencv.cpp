@@ -95,6 +95,7 @@ CvRTrees* RandomForestopencv::mnist_create_RandomForestree(const CvMat* data, co
 }
 void RandomForestopencv::test()
 {
+	printf("Use Random forest learning algorithm to recognize handwritten digit\n");
 	//number of taining samples to be used
 	int numImages = 6000;
 	CvMat *trainingVectors = 0;

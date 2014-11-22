@@ -8,13 +8,13 @@
 #include <ctype.h>
 //#include <stdlib.h>
 #include <ctime>
+#include "../testBase.h"
 
 typedef unsigned char       BYTE;
-using namespace cv;
-using namespace std;
 
 
-class Svmopencv
+
+class Svmopencv : public testBase
 {
 public:
 	void extractTrainingData(int& numImages, CvMat*&trainingVectors, CvMat*& trainingLabels);

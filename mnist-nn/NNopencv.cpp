@@ -84,6 +84,7 @@ void predictonTrainingSamples(NNopencv * nn, CvANN_MLP& Networks, CvMat *& testV
 }
 void NNopencv::test()
 {
+	printf("Use ANN learning algorithm to recognize handwritten digit\n");
 	//number of taining samples to be used
 	int numImages = 6000;
 	CvMat *trainingVectors = 0;
